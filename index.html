@@ -248,7 +248,7 @@
                 const formData = new FormData(form);
                 const data = Object.fromEntries(formData.entries());
 
-                const response = await fetch("https://script.google.com/macros/s/AKfycbxlmLPWOMcx7f88l2Itk9MNll8Y5icJylILHwhiqA9UOt7DevLv405Ex586yYMH9jJk/exec", {
+                const response = await fetch("https://script.google.com/macros/s/AKfycbycwHv9kroWRRvkeo3PY7Avs8Y2xBOyOwDmdPuU7dNOSLNLo29a6IQ9vhvHUlyGE082/exec", {
                     method: "POST",
                     body: new URLSearchParams(data),
                 });
