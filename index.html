@@ -202,54 +202,58 @@
     </section>
   </main>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const form = document.getElementById("formulario");
-      const mensaje = document.getElementById("mensaje");
-      const acordeones = document.querySelectorAll(".accordion");
+ <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("formulario");
+    const mensaje = document.getElementById("mensaje");
+    const acordeones = document.querySelectorAll(".accordion");
 
-      acordeones.forEach(btn => {
-        btn.addEventListener("click", function () {
-          this.classList.toggle("active");
-          const panel = this.nextElementSibling;
-          panel.style.display = panel.style.display === "block" ? "none" : "block";
-        });
-      });
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-
-        const hora = data.hora;
-        const zonas = ["cabeza", "cuello", "tórax"].map(z => z.toUpperCase());
-        if (h < 17 || h > 20) {
-          mensaje.textContent = "❌ El horario permitido es de 5:00 p.m. a 8:00 p.m.";
-          mensaje.style.color = "red";
-          mensaje.style.display = "block";
-          return;
-        }
-
-        console.log("Datos enviados:", datos);
-
-        fetch("https://script.google.com/macros/s/AKfycbzKYrrEktk2cssi2HyKLp0KO_oJmeIbMkPeCGgnuMXeXcYYxcG8AK-ywr_FM3CM8zuu/exec", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data)
-        }).then(() => {
-          mensaje.innerHTML = "✅ Gracias, tu cita ha sido agendada.<br>⏳ Redirigiendo al inicio...<br>🎉 Te contactaremos pronto.";
-          mensaje.style.color = "green";
-          mensaje.style.display = "block";
-          form.reset();
-          window.scrollTo({ top: 0, behavior: "smooth" });
-          setTimeout(() => mensaje.style.display = "none", 5000);
-        }).catch(() => {
-          mensaje.textContent = "❌ Ocurrió un error al enviar la cita.";
-          mensaje.style.color = "red";
-          mensaje.style.display = "block";
-        });
+    acordeones.forEach(btn => {
+      btn.addEventListener("click", function () {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        panel.style.display = panel.style.display === "block" ? "none" : "block";
       });
     });
-  </script>
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      // Convertir la hora a número (formato HH:MM)
+      const [horaStr, minutosStr] = data.hora.split(":");
+      const hora = parseInt(horaStr);
+
+      if (hora < 17 || hora > 20) {
+        mensaje.textContent = "❌ El horario permitido es de 5:00 p.m. a 8:00 p.m.";
+        mensaje.style.color = "red";
+        mensaje.style.display = "block";
+        return;
+      }
+
+      console.log("Datos enviados:", data);
+
+      fetch("https://script.google.com/macros/s/AKfycbzKYrrEktk2cssi2HyKLp0KO_oJmeIbMkPeCGgnuMXeXcYYxcG8AK-ywr_FM3CM8zuu/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      }).then(() => {
+        mensaje.innerHTML = "✅ Gracias, tu cita ha sido agendada.<br>⏳ Redirigiendo al inicio...<br>🎉 Te contactaremos pronto.";
+        mensaje.style.color = "green";
+        mensaje.style.display = "block";
+        form.reset();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        setTimeout(() => mensaje.style.display = "none", 5000);
+      }).catch(() => {
+        mensaje.textContent = "❌ Ocurrió un error al enviar la cita.";
+        mensaje.style.color = "red";
+        mensaje.style.display = "block";
+      });
+    });
+  });
+</script>
+
 </body>
 </html>
