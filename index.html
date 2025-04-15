@@ -222,7 +222,7 @@
         const data = Object.fromEntries(formData.entries());
 
         const hora = data.hora;
-        const [h, m] = hora.split(":".map(Number));
+        const zonas = ["cabeza", "cuello", "tórax"].map(z => z.toUpperCase());
         if (h < 17 || h > 20) {
           mensaje.textContent = "❌ El horario permitido es de 5:00 p.m. a 8:00 p.m.";
           mensaje.style.color = "red";
