@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Consulta Médica - Dr. Fernando López Neblina</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://raw.githubusercontent.com/Fercho616/ConsusltasV4/main/Fondo.png') no-repeat center center fixed;
+      background-size: cover;
+      scroll-behavior: smooth;
+    }
+    header {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    header img {
+      max-height: 80px;
+    }
+    main {
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.9);
+      max-width: 1000px;
+      margin: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    .responsive-img {
+      width: 100%;
+      max-width: 33%;
+      height: auto;
+      display: block;
+      margin: 1rem auto;
+    }
+    h2 {
+      color: #0d47a1;
+      text-align: center;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    .accordion {
+      background-color: #1976d2;
+      color: white;
+      cursor: pointer;
+      padding: 1rem;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      border-radius: 5px;
+      margin-bottom: 5px;
+    }
+    .accordion:hover {
+      background-color: #0d47a1;
+    }
+    .panel {
+      padding: 0 1rem;
+      background-color: white;
+      display: none;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    form input, form select, form textarea {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    form button {
+      padding: 0.75rem;
+      background-color: #1976d2;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .mensaje-confirmacion {
+      margin-top: 1rem;
+      font-weight: bold;
+      display: none;
+    }
+    .contact-info {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 2rem;
+      color: #0d47a1;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://raw.githubusercontent.com/Fercho616/ConsusltasV3/main/logo.png" alt="Logo">
+    <h1>Consulta Médica - Dr. Fernando López Neblina</h1>
+    <div class="contact-info">📞 686-136-1683</div>
+  </header>
+
+  <main>
+    <img src="https://raw.githubusercontent.com/Fercho616/ConsusltasV3/main/yo2021.jpg" alt="Presentación Dr. Fernando López" class="responsive-img">
+
+    <section>
+      <h2>¿Quién es el Dr. Fernando López Neblina?</h2>
+      <p>
+        Soy médico y cirujano en varios campos de la salud. En mi país, México, realicé las especialidades de cirugía general,
+        apoyo nutricional e inmunología. En Estados Unidos, en Michigan realicé la especialidad de trasplante de órganos y tejidos
+        principalmente en trasplante renal, hepático y de páncreas. También ahí realicé mi especialidad en biología molecular.
+        Posteriormente hice la especialidad en accesos vasculares y cirugía vascular en la Univ. de Nebraska. Actualmente, además de mi
+        actividad clínica, soy catedrático en la facultad de medicina de la Universidad Autónoma de Baja California.
+      </p>
+      <p>
+        Me gusta tratar a mis pacientes como si fueran un familiar. Siempre les explico a mis pacientes todos los aspectos de su problemática
+        y estando seguro de que todos entienden la situación, los hago participar en la toma de decisiones. Mientras preparamos la cirugía
+        me gusta que los pacientes tengan información constante y que tanto ellos como sus familiares sepan la evolución del caso. Estoy
+        disponible las 24 horas del día, los 365 días del año.
+      </p>
+      <img src="https://raw.githubusercontent.com/Fercho616/ConsusltasV3/main/yo.jpg" alt="Dr. operando" class="responsive-img">
+      <h3>Misión</h3>
+      <p>Brindar atención médica integral, accesible y de calidad.</p>
+      <h3>Visión</h3>
+      <p>Ser un médico que resuelva sus problemas de salud con excelencia, trato humano y compromiso con la salud preventiva.</p>
+      <h3>Valores</h3>
+      <ul>
+        <li>Ética profesional</li>
+        <li>Empatía</li>
+        <li>Diversidad</li>
+        <li>Honestidad</li>
+        <li>Responsabilidad</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Especialidades Médicas</h2>
+      <button class="accordion">Medicina General</button>
+      <div class="panel">Diabetes, Hipertensión, Problemas hormonales y de tiroides</div>
+      <button class="accordion">Cirugía Ginecológica</button>
+      <div class="panel">Tumores de matriz, alteraciones hormonales, infecciones urinarias</div>
+      <button class="accordion">Cirugía Urológica</button>
+      <div class="panel">Tumores de riñón y alteraciones del sistema urinario</div>
+      <button class="accordion">Cirugía de Gastro</button>
+      <div class="panel">Hernias, vesícula, tumores, cirugía laparoscópica</div>
+      <button class="accordion">Cirugía Vascular</button>
+      <div class="panel">Varices, insuficiencia arterial y venosa, pie diabético</div>
+      <button class="accordion">Cirugía de Piel</button>
+      <div class="panel">Tumores benignos y malignos</div>
+      <button class="accordion">Cirugía de Cuello</button>
+      <div class="panel">Tiroides, Tumores, Quistes</div>
+      <img src="https://raw.githubusercontent.com/Fercho616/ConsusltasV3/main/MiInfo2022.png" alt="Especialidades" class="responsive-img">
+    </section>
+
+    <section>
+      <h2>Agenda tu Cita</h2>
+      <form id="formulario">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="text" name="apellidoP" placeholder="Apellido Paterno" required>
+        <input type="text" name="apellidoM" placeholder="Apellido Materno" required>
+        <select name="sexo" required>
+          <option value="">Sexo</option>
+          <option value="Femenino">Femenino</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Otro">Otro</option>
+        </select>
+        <input type="email" name="email" placeholder="Correo electrónico" required>
+        <input type="tel" name="telefono" placeholder="Teléfono" required>
+        <select name="zona" required>
+          <option value="">Zona con problema de salud</option>
+          <option value="Cabeza">Cabeza</option>
+          <option value="Cuello">Cuello</option>
+          <option value="Tórax">Tórax</option>
+          <option value="Abdomen">Abdomen</option>
+          <option value="Genitales">Genitales</option>
+          <option value="Piernas">Piernas</option>
+          <option value="Otro">Otro</option>
+        </select>
+        <input type="text" name="otro" placeholder="Otro (especifique)">
+        <input type="date" name="fecha" required>
+        <input type="time" name="hora" min="17:00" max="20:00" required>
+        <textarea name="comentarios" placeholder="Comentarios o dato adicional"></textarea>
+        <select name="modalidad" required>
+          <option value="">¿Cómo desea la consulta?</option>
+          <option value="Presencial">Presencial</option>
+          <option value="Videollamada">Videollamada</option>
+        </select>
+        <button type="submit">Agendar Cita</button>
+        <div class="mensaje-confirmacion" id="mensaje"></div>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("formulario");
+      const mensaje = document.getElementById("mensaje");
+      const acordeones = document.querySelectorAll(".accordion");
+
+      acordeones.forEach(btn => {
+        btn.addEventListener("click", function () {
+          this.classList.toggle("active");
+          const panel = this.nextElementSibling;
+          panel.style.display = panel.style.display === "block" ? "none" : "block";
+        });
+      });
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        const hora = data.hora;
+        const [h, m] = hora.split(":".map(Number));
+        if (h < 17 || h > 20) {
+          mensaje.textContent = "❌ El horario permitido es de 5:00 p.m. a 8:00 p.m.";
+          mensaje.style.color = "red";
+          mensaje.style.display = "block";
+          return;
+        }
+
+        fetch("https://script.google.com/macros/s/AKfycbwjpcIipak86xj1JzaX-X98KXIu7785KchOnUqV5b7KUT1VCBcHG9YFvrh0HmIkSDgY/exec", {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        }).then(() => {
+          mensaje.innerHTML = "✅ Gracias, tu cita ha sido agendada.<br>⏳ Redirigiendo al inicio...<br>🎉 Te contactaremos pronto.";
+          mensaje.style.color = "green";
+          mensaje.style.display = "block";
+          form.reset();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          setTimeout(() => mensaje.style.display = "none", 5000);
+        }).catch(() => {
+          mensaje.textContent = "❌ Ocurrió un error al enviar la cita.";
+          mensaje.style.color = "red";
+          mensaje.style.display = "block";
+        });
+      });
+    });
+  </script>
+</body>
+</html>
